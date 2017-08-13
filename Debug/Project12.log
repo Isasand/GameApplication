@@ -1,36 +1,3 @@
 ﻿  Player.cpp
-  Generating Code...
-  Compiling...
-  Hockeyteam.cpp
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.h(11): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(11): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(19): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(29): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(34): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(55): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(68): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(85): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Footballteam.cpp
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.h(12): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(12): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(20): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(30): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(36): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(42): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(68): warning C4018: '<': signed/unsigned mismatch
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(84): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(47): warning C4715: 'Footballteam::getPlayersTeam': not all control paths return a value
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(77): warning C4715: 'Footballteam::get': not all control paths return a value
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\footballteam.cpp(100): warning C4715: 'Footballteam::getRandom': not all control paths return a value
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(45): warning C4715: 'Hockeyteam::getPlayersTeam': not all control paths return a value
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(78): warning C4715: 'Hockeyteam::get': not all control paths return a value
-c:\users\isa\documents\visual studio 2017\projects\project12\project12\hockeyteam.cpp(101): warning C4715: 'Hockeyteam::getRandom': not all control paths return a value
-  Skipping... (no relevant changes detected)
-  Source.cpp
-  Hockeyplayer.cpp
-  Footballplayer.cpp
-  Project12.vcxproj -> C:\Users\Isa\documents\visual studio 2017\Projects\Project12\Debug\Project12.exe
-  Project12.vcxproj -> C:\Users\Isa\documents\visual studio 2017\Projects\Project12\Debug\Project12.pdb (Partial PDB)
+  Project12.vcxproj -> C:\Users\Isa\Documents\Visual Studio 2017\Projects\Project12\GameApplication\Debug\Project12.exe
+  Project12.vcxproj -> C:\Users\Isa\Documents\Visual Studio 2017\Projects\Project12\GameApplication\Debug\Project12.pdb (Partial PDB)

@@ -5,8 +5,6 @@
 #include "Hockeyplayer.h"
 #include "Footballplayer.h"
 
-using namespace std;
-
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -17,30 +15,57 @@ using namespace std;
 #include <time.h>
 #include <cstring>
 #include <Windows.h>
+using namespace std;
 
-using std::cout;
-using std::endl;
-using std::cin;
+template <typename t>
+
+void IfNameAlike(t* team1, t* team2) {
+	while (team2->getTeamName() == team1->getTeamName()) {
+		cout << "Hey, that name is taken!" << endl;
+		team2->setTeamName(NamingRandomteam2());
+		cout << endl;
+	}
+	
+}
+
+template <typename t2>
+
+void Game(int score1, int score2, t2* team1, t2* team2) {
+	if (score1<score2) {
+		team1->Lost();
+		team2->Win();
+		cout << team2->getTeamName() << " wins!" << endl;
+	}
+
+	if (score1>score2) {
+		team1->Win();
+		team2->Lost();
+		cout << team1->getTeamName() << " wins!" << endl;
+	}
+
+	if (score1 == score2) {
+		team1->Tie();
+		team2->Tie();
+		cout << "Its a tie!" << endl;
+	}
+	team1->PlayedGame();
+	team2->PlayedGame();
+}
 
 int HockeyOrFootball();
 void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* footballPlayers, std::string t1, std::string t2, std::string t3, std::string t4);
 std::string NamingRandomteam1();
 std::string NamingRandomteam2();
-void IfNameAlikeH(Hockeyteam* team1, Hockeyteam *team2);
-void IfNameAlikeF(Footballteam* team1, Footballteam *team2);
 void HockeyDraft(Hockeyteam *team, Hockeyteam *players, std::string teamName, std::string position[6], Hockeyplayer teamPlayer[6]);
 void FootballDraft(Footballteam *team, Footballteam *players, std::string teamName, std::string position[11], Footballplayer teamplayer[11]);
-void HockeyGame(int score1, int score2, Hockeyteam *team1, Hockeyteam *team2);
-void FootballGame(int score1, int score2, Footballteam *team1, Footballteam *team2);
 void NextGameorGamestats(int i);
 
 
 int main() {
 
-	
 	int choice;
 	Hockeyteam *allHockeyPlayers = new Hockeyteam();//team of players containing all players in the file
-	Footballteam* allFootballPlayers = new Footballteam();
+	Footballteam *allFootballPlayers = new Footballteam();
 
 	std::ifstream readFile;
 	readFile.open("spelarinfo.txt");//stream to read file 
@@ -67,7 +92,7 @@ int main() {
 
 		randomteam1->setTeamName(NamingRandomteam1());//name the teams
 		randomteam2->setTeamName(NamingRandomteam2());
-		IfNameAlikeH(randomteam1, randomteam2);
+		IfNameAlike(randomteam1, randomteam2);
 
 		std::string position[6] = { "Goalkeeper", "Defense", "Defense", "Defense", "Forward", "Forward" };//array of påositions for filling the team
 		Hockeyplayer teamPlayer[6];
@@ -87,7 +112,7 @@ int main() {
 			randomteam2->PrintPlayerInfo();
 			cout << "Total playerscore: " << randomteam2->getPlayerScore() << endl << endl;//printing playerscore
 
-			HockeyGame(randomteam1->getPlayerScore(), randomteam2->getPlayerScore(), randomteam1, randomteam2);//playing a game betweed the two teams
+			Game(randomteam1->getPlayerScore(), randomteam2->getPlayerScore(), randomteam1, randomteam2);//playing a game betweed the two teams
 			NextGameorGamestats(i);
 
 			cin.get();
@@ -104,7 +129,7 @@ int main() {
 
 		randomteam1->setTeamName(NamingRandomteam1());//naming them
 		randomteam2->setTeamName(NamingRandomteam2());
-		IfNameAlikeF(randomteam1, randomteam2);
+		IfNameAlike(randomteam1, randomteam2);
 
 		std::string position[11] = { "Goalkeeper", "Defense", "Defense", "Defense", "Defense", "Defense", "Midfielder", "Midfielder", "Midfielder", "Forward", "Forward" };//array av positioner så att vi kan leta igenom laget
 		Footballplayer teamPlayer[11];
@@ -123,7 +148,7 @@ int main() {
 			randomteam2->PrintPlayerInfo();
 			cout << "Total playervalue: " << randomteam2->getPlayerScore() << endl << endl;
 
-			FootballGame(randomteam1->getPlayerScore(), randomteam2->getPlayerScore(), randomteam1, randomteam2);
+			Game(randomteam1->getPlayerScore(), randomteam2->getPlayerScore(), randomteam1, randomteam2);
 			NextGameorGamestats(i);
 
 			cin.get();
@@ -160,22 +185,6 @@ void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* football
 		if (player->getName() != "") {//vektorerna får en tom plats med konstruktorn för att den innehåller element som är har ett värde satt, så jag kollar att den inte kommer med 
 			footballPlayers->AddPlayer(player);
 		}
-	}
-}
-
-void IfNameAlikeH(Hockeyteam *team1, Hockeyteam *team2) {
-	while (team2->getTeamName() == team1->getTeamName()) {
-		cout << "Hey, that name is taken!" << endl;
-		team2->setTeamName(NamingRandomteam2());
-		cout << endl;
-	}
-}
-
-void IfNameAlikeF(Footballteam* team1, Footballteam *team2) {
-	while (team2->getTeamName() == team1->getTeamName()) {
-		cout << "Hey, that name is taken!" << endl;
-		team2->setTeamName(NamingRandomteam2());
-		cout << endl;
 	}
 }
 
@@ -225,50 +234,6 @@ void FootballDraft(Footballteam *team, Footballteam *players, std::string teamNa
 		team->setPlayersTeam(teamPlayer[i].getName(), teamName);
 		players->setPlayersTeam(teamPlayer[i].getName(), teamName);
 	}
-}
-
-void HockeyGame(int score1, int score2, Hockeyteam *team1, Hockeyteam *team2) {
-	if (score1<score2) {
-		team1->Lost();
-		team2->Win();
-		cout << team2->getTeamName() << " wins!" << endl;
-	}
-
-	if (score1>score2) {
-		team1->Win();
-		team2->Lost();
-		cout << team1->getTeamName() << " wins!" << endl;
-	}
-
-	if (score1 == score2) {
-		team1->Tie();
-		team2->Tie();
-		cout << "Its a tie!" << endl;
-	}
-	team1->PlayedGame();
-	team2->PlayedGame();
-}
-
-void FootballGame(int score1, int score2, Footballteam *team1, Footballteam *team2) {
-	if (score1<score2) {
-		team1->Lost();
-		team2->Win();
-		cout << team2->getTeamName() << " wins!" << endl;
-	}
-
-	if (score1>score2) {
-		team1->Win();
-		team2->Lost();
-		cout << team1->getTeamName() << " wins!" << endl;
-	}
-
-	if (score1 == score2) {
-		team1->Tie();
-		team2->Tie();
-		cout << "Its a tie!" << endl;
-	}
-	team1->PlayedGame();
-	team2->PlayedGame();
 }
 
 void NextGameorGamestats(int i) {

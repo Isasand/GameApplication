@@ -47,7 +47,6 @@ std::string Footballteam::getPlayersTeam(std::string argPlayerName) {//get playe
 }
 
 int Footballteam::getPlayerScore() {//add upp all players value and get total team value
-	//why is m_value not an int from the beginning? need to clean up this method 
 	std::string str;
 	char foo[2];
 	int sum = 0;

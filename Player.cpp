@@ -35,5 +35,5 @@ std::string Player::getSport()
 
 void Player::getPlayerInfo() 
 {
-	std::cout << m_Position << m_Name << m_Value << std::endl;
+	std::cout << m_Position  << ", " << m_Name << " Score: " << m_Value << std::endl;
 }
