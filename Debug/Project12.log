@@ -1,3 +1,5 @@
-﻿  Player.cpp
+﻿  Source.cpp
+c:\users\isa\documents\visual studio 2017\projects\project12\gameapplication\hockeyteam.h(11): warning C4018: '<': signed/unsigned mismatch
+c:\users\isa\documents\visual studio 2017\projects\project12\gameapplication\footballteam.h(12): warning C4018: '<': signed/unsigned mismatch
   Project12.vcxproj -> C:\Users\Isa\Documents\Visual Studio 2017\Projects\Project12\GameApplication\Debug\Project12.exe
   Project12.vcxproj -> C:\Users\Isa\Documents\Visual Studio 2017\Projects\Project12\GameApplication\Debug\Project12.pdb (Partial PDB)

@@ -53,11 +53,11 @@ void Game(int score1, int score2, t2* team1, t2* team2) {
 }
 
 int HockeyOrFootball();
-void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* footballPlayers, std::string t1, std::string t2, std::string t3, std::string t4);
-std::string NamingRandomteam1();
-std::string NamingRandomteam2();
-void HockeyDraft(Hockeyteam *team, Hockeyteam *players, std::string teamName, std::string position[6], Hockeyplayer teamPlayer[6]);
-void FootballDraft(Footballteam *team, Footballteam *players, std::string teamName, std::string position[11], Footballplayer teamplayer[11]);
+void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* footballPlayers, string t1, string t2, string t3, string t4);
+string NamingRandomteam1();
+string NamingRandomteam2();
+void HockeyDraft(Hockeyteam *team, Hockeyteam *players, string teamName, string position[6], Hockeyplayer teamPlayer[6]);
+void FootballDraft(Footballteam *team, Footballteam *players, string teamName, string position[11], Footballplayer teamplayer[11]);
 void NextGameorGamestats(int i);
 
 
@@ -67,16 +67,16 @@ int main() {
 	Hockeyteam *allHockeyPlayers = new Hockeyteam();//team of players containing all players in the file
 	Footballteam *allFootballPlayers = new Footballteam();
 
-	std::ifstream readFile;
+	ifstream readFile;
 	readFile.open("spelarinfo.txt");//stream to read file 
 
 	choice = HockeyOrFootball();
 	cin.get();
 
-	std::string line, t_Name, t_Position, t_Value, t_Sport;
+	string line, t_Name, t_Position, t_Value, t_Sport;
 
 	while (getline(readFile, line)) {//read file to line 
-		std::stringstream split(line);//split the line with stringstream into name, position, value and sport
+		stringstream split(line);//split the line with stringstream into name, position, value and sport
 		getline(split, t_Name, ':');
 		getline(split, t_Position, ':');
 		getline(split, t_Value, ':');
@@ -94,7 +94,7 @@ int main() {
 		randomteam2->setTeamName(NamingRandomteam2());
 		IfNameAlike(randomteam1, randomteam2);
 
-		std::string position[6] = { "Goalkeeper", "Defense", "Defense", "Defense", "Forward", "Forward" };//array of påositions for filling the team
+		string position[6] = { "Goalkeeper", "Defense", "Defense", "Defense", "Forward", "Forward" };//array of påositions for filling the team
 		Hockeyplayer teamPlayer[6];
 		Hockeyplayer teamPlayer2[6];
 
@@ -131,7 +131,7 @@ int main() {
 		randomteam2->setTeamName(NamingRandomteam2());
 		IfNameAlike(randomteam1, randomteam2);
 
-		std::string position[11] = { "Goalkeeper", "Defense", "Defense", "Defense", "Defense", "Defense", "Midfielder", "Midfielder", "Midfielder", "Forward", "Forward" };//array av positioner så att vi kan leta igenom laget
+		string position[11] = { "Goalkeeper", "Defense", "Defense", "Defense", "Defense", "Defense", "Midfielder", "Midfielder", "Midfielder", "Forward", "Forward" };//array av positioner så att vi kan leta igenom laget
 		Footballplayer teamPlayer[11];
 		Footballplayer teamPlayer2[11];
 
@@ -172,7 +172,7 @@ int HockeyOrFootball() {
 	return choice;
 }
 
-void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* footballPlayers, std::string t1, std::string t2, std::string t3, std::string t4) {
+void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* footballPlayers, string t1, string t2, string t3, string t4) {
 	if (choice == 1) {
 		Hockeyplayer *player = new Hockeyplayer(t1, t2, t3, t4);//create a temporary hockeyplayer
 		if (player->getName() != "") {//a vector may get an empty spot at initialization because the constructor contains element with an assigned value, 
@@ -188,21 +188,21 @@ void AddAllPlayers(int choice, Hockeyteam* hockeyPlayers, Footballteam* football
 	}
 }
 
-std::string NamingRandomteam1() {
-	std::string name;
+string NamingRandomteam1() {
+	string name;
 	cout << "Give a name to random team 1: ";
 	getline(cin, name);
 	return name;
 }
 
-std::string  NamingRandomteam2() {
-	std::string name;
+string  NamingRandomteam2() {
+	string name;
 	cout << "Give a name to random team 2: ";
 	getline(cin, name);
 	return name;
 }
 
-void HockeyDraft(Hockeyteam *team, Hockeyteam *players, std::string teamName, std::string position[6], Hockeyplayer teamPlayer[6]) {
+void HockeyDraft(Hockeyteam *team, Hockeyteam *players, string teamName, string position[6], Hockeyplayer teamPlayer[6]) {
 	cout << "drafting players for " << team->getTeamName();
 	Sleep(500);
 	for (int i = 0; i<3; i++) {
@@ -219,7 +219,7 @@ void HockeyDraft(Hockeyteam *team, Hockeyteam *players, std::string teamName, st
 	}
 }
 
-void FootballDraft(Footballteam *team, Footballteam *players, std::string teamName, std::string position[11], Footballplayer teamPlayer[11]) {
+void FootballDraft(Footballteam *team, Footballteam *players, string teamName, string position[11], Footballplayer teamPlayer[11]) {
 	cout << "drafting players for " << team->getTeamName();
 	Sleep(500);
 	for (int i = 0; i<3; i++) {
