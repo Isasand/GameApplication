@@ -2,6 +2,6 @@
 Practicing classes
 
 Base classes
-Player
-Team
+-Player
+-Team
 
